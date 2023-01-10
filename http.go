@@ -37,8 +37,8 @@ func EmitRequestToFileserver(filename string, input *os.File, urlPath string, rs
 		// New multipart writer.
 		body := &bytes.Buffer{}
 		writer := multipart.NewWriter(body)
-		newFileName := fmt.Sprintf("f-%d-%s", time.Now().Unix(), filename)
-		fw, err := writer.CreateFormFile("file", newFileName)
+		// newFileName := fmt.Sprintf("f-%d-%s", time.Now().Unix(), filename)
+		fw, err := writer.CreateFormFile("file", filename)
 		if err != nil {
 			return err
 		}

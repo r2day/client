@@ -46,7 +46,7 @@ func EmitRequestToFileserver(filename string, input *os.File, urlPath string, rs
 		if err != nil {
 			return err
 		}
-		writer.Close()
+		_ = writer.Close()
 
 		// 调用http请求
 		err = EmitHttpRequest(http.MethodPost, urlPath, body.Bytes(), writer, rsp)
